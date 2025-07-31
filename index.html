@@ -8,33 +8,142 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    
     <header>
-        <div class="logo">
-            <a href="./index.html">
-                <img class="logo-img" src="./assets/Logo.png" alt="Logo">
-            </a>
-            <a class="logo-texto" href="./index.html">
-                <p class="logo-texto">The Last <span class="logo-resaltado">Clutch</span></p>
-            </a>
+        <div class="header-contenido">
+            <div class="logo">
+                <a class="logo-texto" href="./index.html">
+                    <span class="logo-texto">The Last <span class="logo-resaltado">Clutch</span></span>
+                </a>
+            </div>
+            <button id="abrir" class="abrir-menu" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+            <nav class="nav" id="nav" aria-label="Menú principal">
+                <button id="cerrar" class="cerrar-menu" aria-label="Cerrar menú"><i class="bi bi-x-circle"></i></button>
+                <ul class="nav-list">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Calzado</a></li>
+                    <li><a href="#">Gift Card</a></li>
+                    <li><a href="#">Carrito</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="button">
-            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
-        </div>
-        <nav class="nav" id="nav">
-            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-circle"></i></button>
-            <ul class="nav-list">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Calzado</a></li>
-                <li><a href="#">Gift Card</a></li>
-                <li><a href="#">Carrito</a></li>
-            </ul>
-        </nav>
     </header>
 
+    <main class="main">
+        <video autoplay muted loop playsinline id="video-fondo">
+            <source src="./assets/video.fondo.mp4" type="video/mp4" />
+            Tu navegador no soporta videos HTML5.
+        </video>
+        <div class="hero-main">
+            <h1 class="hero-h1">SUEÑA EN GRANDE</h1>
+            <button class="button-hero">Comprar</button>
+        </div>
+    </main>
     
+    <section class="grid">
+        <div class="grid-item">
+            <img src="./assets/lebron.jpg" alt="LeBron James" title="LeBron James">
+            <h4 class="grid-text">LeBron James</h4>
+        </div>
+        <div class="grid-item">
+            <img src="./assets/giannis.jpg" alt="Giannis Antetokounmpo" title="Giannis Antetokounmpo">
+            <h4 class="grid-text">Giannis Antetokounmpo</h4>
+        </div>
+        <div class="grid-item">
+            <img src="./assets/durant.jpg" alt="Kevin Durant" title="Kevin Durant">
+            <h4 class="grid-text">Kevin Durant</h4>
+        </div>
+    </section>
 
+    <section class="destacados-section">
+        <h2 class="destacados-principal-title">Destacados</h2>
+        <div class="destacados-scroll">
+            <div class="destacados-grid">
+                <div class="destacados-img">
+                    <img src="./assets/Lebron XXII.avif" alt="Zapatilla Lebron XXII" title="LeBron XXII">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">LeBron XXII</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/Men's Nike Gray Lebron XXI Basketball Shoes.avif" alt="Zapatilla Lebron XXI" title="LeBron XXI">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">LeBron XXI</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/Nike Coral Queen Conch Lebron XXI Basketball Shoe.avif" alt="Zapatilla Lebron XXI" title="LeBron XXI">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">LeBron XXI</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/Giannis Antetokounmpo Nike Red Zoom Freak 5 Low Top Shoes.avif" alt="Giannis Freak 5 Red" title="Giannis Freak 5 Red">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">Giannis Freak 5 Red</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/Giannis Freak 5 Basketball Sneakers.avif" alt="Giannis Freak 5" title="Giannis Freak 5">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">Giannis Freak 5</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/Black KD 17 Basketball Shoes.avif" alt="Kevin Durant 17" title="Kevin Durant 17">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">Kevin Durant 17</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+                <div class="destacados-img">
+                    <img src="./assets/KD15 Three Quarter High Shoe.avif" alt="Kevin Durant 15" title="Kevin Durant 15">
+                    <div class="destacados-descripcion">
+                        <h3 class="destacados-title">Kevin Durant 15</h3>
+                        <p class="destacados-subtitle">Zapatillas de Basquet</p>
+                        <p class="destacados-precio">$154.999</p>
+                        <button class="destacados-agregar">Agregar Al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <footer class="footer_footer">
+        <div class="footer">
+            <div class="footer__top">
+                <div>
+                    <h2>"WORK HARD, DREAM BIG"</h2>
+                    <p>La pasión de nuestros clientes nos impulsa a seguir avanzando cada día. Nos encantaría formar parte del camino que te lleve a cualquier objetivo que te propongas. A nuestra manera, siempre estamos de tu lado.</p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__bottom__icons">
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a>
+                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a>
+                </div>
+                <p class="footer__bottom__p">© Página desarrollada y diseñada por Martin Negri 2025</p>
+            </div>
+        </div>
+    </footer>
     <script src="./js/main.js"></script>
 </body>
 </html>
