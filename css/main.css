@@ -3,7 +3,7 @@
     --color-principal: #ff7527;
     --color-negro: #000;
     --color-blanco: #fff;
-    --color-header-bg: rgba(0, 0, 0, 0.075);
+    --color-header-bg: rgba(0, 0, 0, 0.199);
     --color-footer-bg: #000000c0;
 }
 
@@ -67,11 +67,12 @@ header {
 .nav-list li a {
     position: relative;
     text-decoration: none;
-    color: var(--color-negro);
+    color: var(--color-blanco);
     transition: color 0.3s ease;
     overflow: hidden;
-    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.288);
 }
+
 
 .nav-list li a::after {
     content: "";
@@ -123,7 +124,7 @@ header {
 }
 
 .hero-main {
-    color: rgba(0, 0, 0, 0.74);
+    color: rgba(0, 0, 0, 0.637);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -140,6 +141,7 @@ header {
 }
 
 .button-hero {
+    text-decoration: none;
     padding: 0.75rem 2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -277,6 +279,67 @@ header {
 }
 
 .destacados-agregar:hover {
+    background-color: #333;
+    color: var(--color-principal);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*CALZADO*/
+.main-calzado{
+    padding: 1rem 3rem;
+}
+.calzado-principal-title{
+    font-size: 2.4rem;
+    font-weight: 100;
+    margin: 0;
+    padding: 8rem 4rem 1rem;
+    top: 0;
+    background-color: var(--color-blanco);
+    z-index: 10;
+}
+
+.calzado-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 2rem;
+    padding: 1rem 3rem;
+}
+
+
+.calzado-img{
+    min-width: 200px;
+    flex-shrink: 0;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+}
+
+.calzado-img img {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.calzado-agregar {
+    padding: 0.7rem 1rem;
+    font-weight: 600;
+    margin-top: .9rem;
+    color: var(--color-blanco);
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.calzado-agregar:hover {
     background-color: #333;
     color: var(--color-principal);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
@@ -457,3 +520,5 @@ footer p {
     }
 
 }
+
+
