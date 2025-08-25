@@ -348,6 +348,14 @@ header {
 }
 
 /*CARRITO*/
+.numerito{
+    background-color: var(--color-principal);
+    color: var(--color-footer-bg);
+    border-radius: .3rem;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.8rem;
+}
+
 .main-carrito{
     padding: .5rem 4rem;
 }
@@ -389,8 +397,12 @@ header {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-.carrito-vacio{
-    display: none;
+.carrito-vacio, .carrito-comprado{
+    color: var(--color-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .carrito-productos{
@@ -676,4 +688,7 @@ footer p {
 
 }
 
+.disabled {
+    display: none;
 
+}
