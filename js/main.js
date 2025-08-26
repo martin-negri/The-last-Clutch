@@ -24,14 +24,14 @@ const productos = [
     { id: 5, nombre: "LeBron XXI 'Optimism'", categoria: { nombre: "lebron", id: "lebron" }, precio: 128999, imagen: "../assets/LEBRON XXI 'OPTIMISM'.webp" },
     { id: 6, nombre: "KD15", categoria: { nombre: "kd", id: "kd" }, precio: 154999, imagen: "../assets/KD15 Three Quarter High Shoe.avif" },
     { id: 7, nombre: "KD17", categoria: { nombre: "kd", id: "kd" }, precio: 184999, imagen: "../assets/Black KD 17 Basketball Shoes.avif" },
-    { id: 8, nombre: "KD17 Easy Money", categoria: { nombre: "kd", id: "kd" }, precio: 154999, imagen: "../assets/KD 17 EASY MONEY.webp" },
+        { id: 8, nombre: "KD17 Easy Money", categoria: { nombre: "kd", id: "kd" }, precio: 154999, imagen: "../assets/KD 17 EASY MONEY.webp" },
     { id: 9, nombre: "KD17", categoria: { nombre: "kd", id: "kd" }, precio: 184999, imagen: "../assets/KD17.webp" },
     { id: 10, nombre: "Giannis Freak 5", categoria: { nombre: "giannis", id: "giannis" }, precio: 154999, imagen: "../assets/Giannis Antetokounmpo Nike Red Zoom Freak 5 Low Top Shoes.avif" },
     { id: 11, nombre: "Giannis Freak 6", categoria: { nombre: "giannis", id: "giannis" }, precio: 154999, imagen: "../assets/Giannis Freak 6 Basketball.avif" },
     { id: 12, nombre: "Giannis Freak 5", categoria: { nombre: "giannis", id: "giannis" }, precio: 154999, imagen: "../assets/Giannis Freak 5 Basketball Sneakers.avif" }
 ];
 
-// --- RENDER / FILTRO  ---
+// --- RENDER ---
 const contenedorProductos = document.querySelector("#contenedor-productos");
 const botonesCategorias = document.querySelectorAll(".boton-categoria");
 let tituloPrincipal = document.querySelector("#titulo-principal") || document.querySelector(".calzado-principal-title");
@@ -100,7 +100,7 @@ botonesCategorias.forEach(boton => {
 });
 });
 
-
+// --- CARRITO ---
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function guardarCarrito() {
@@ -120,7 +120,7 @@ function agregarAlCarrito(idProducto) {
     const enCarrito = carrito.find(p => p.id == idProducto);
     if (enCarrito) {
     enCarrito.cantidad++;
-} else {
+    } else {
     carrito.push({ ...producto, cantidad: 1 });
 }
 
@@ -147,10 +147,9 @@ botonesDestacados.forEach(boton => {
     const precio = parseInt(precioTexto, 10);
     const imagen = productoElemento.querySelector("img").getAttribute("src");
 
-    
+    // buscamos si ya existe en array productos
     let producto = productos.find(p => p.nombre === nombre);
     if (!producto) {
-    
         producto = {
         id: Date.now(),
         nombre,
@@ -158,14 +157,14 @@ botonesDestacados.forEach(boton => {
         imagen,
         categoria: { nombre: "destacados", id: "destacados" }
     };
-    productos.push(producto);
+        productos.push(producto);
     }
     agregarAlCarrito(producto.id);
 });
 });
 
 // --- RENDER EN carrito.html ---
-function renderCarrito() {
+function renderCarrito(opciones = { compra: false }) {
     const lista = document.querySelector(".carrito-productos");
     const vacio = document.querySelector(".carrito-vacio");
     const acciones = document.querySelector(".carrito-acciones");
@@ -175,10 +174,17 @@ function renderCarrito() {
 if (!lista || !vacio || !acciones || !totalEl) return;
 
 if (carrito.length === 0) {
-    vacio.classList.remove("disabled");
-    acciones.classList.add("disabled");
-    lista.classList.add("disabled");
-    comprado?.classList.add("disabled");
+    if (opciones.compra) {
+        vacio.classList.add("disabled");
+        acciones.classList.add("disabled");
+        lista.classList.add("disabled");
+        comprado?.classList.remove("disabled");
+    } else {
+        vacio.classList.remove("disabled");
+        acciones.classList.add("disabled");
+        lista.classList.add("disabled");
+        comprado?.classList.add("disabled");
+    }
     totalEl.textContent = "$0";
     lista.innerHTML = "";
     return;
@@ -234,11 +240,10 @@ lista.querySelectorAll(".carrito-producto-eliminar").forEach(btn => {
 });
 }
 
-// botones "Vaciar" y "Comprar" (carrito.html)
+// --- ACCIONES carrito.html ---
 function wireCarritoActions() {
     const btnVaciar = document.querySelector(".carrito-acciones-vaciar");
     const btnComprar = document.querySelector(".carrito-acciones-comprar");
-    const comprado = document.querySelector(".carrito-comprado");
 
     btnVaciar?.addEventListener("click", () => {
     carrito = [];
@@ -251,16 +256,13 @@ btnComprar?.addEventListener("click", () => {
     carrito = [];
     guardarCarrito();
     actualizarNumerito();
-    renderCarrito();
-    comprado?.classList.remove("disabled");
+    renderCarrito({ compra: true }); 
 });
 }
-
 
 document.addEventListener("DOMContentLoaded", () => {
     actualizarNumerito();
     renderCarrito();
     wireCarritoActions();
 });
-
 
